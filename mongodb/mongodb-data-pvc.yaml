@@ -1,0 +1,15 @@
+# vi mongodb-data-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongodb-data-pvc
+  namespace: dev
+
+spec:
+  storageClassName: local-storage
+  accessModes:
+    - "ReadWriteOnce"
+  volumeName: mongodb-data-pv
+  resources:
+    requests:
+      storage: 1Gi
