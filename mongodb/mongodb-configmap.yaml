@@ -5,5 +5,10 @@ metadata:
   namespace: dev
   creationTimestamp: null
 data:
-  mongodb-service: mongodb-headless-svc
-
+  mongodb-service: "mongodb-headless-svc"
+  #mongodb-url: "mongodb://admin:password123@mongodb-headless-svc:27027/?authSource=admin"
+  #me-server-port: "8081"
+  #me-config-site-sessionsecret: "cookiesecret"
+  #me-config-site-cookiessecret: "sessionsecret"
+  #me-config-basicauth: "true"
+  #me-config-mongodb-enable-admin: "true"
