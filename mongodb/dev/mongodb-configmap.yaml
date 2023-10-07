@@ -2,10 +2,9 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: mongodb-configmap
-  namespace: dev
   creationTimestamp: null
 data:
-  mongodb-service: "mongodb-headless-svc"
+  mongodb-service: "mongodb-service"
   #mongodb-url: "mongodb://admin:password123@mongodb-headless-svc:27027/?authSource=admin"
   #me-server-port: "8081"
   #me-config-site-sessionsecret: "cookiesecret"

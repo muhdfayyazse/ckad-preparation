@@ -1,8 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata: 
-  name: mongodb-headless-svc
-  namespace: dev
+  name: mongodb-service
 spec: 
   ports: 
   - name: mongodb

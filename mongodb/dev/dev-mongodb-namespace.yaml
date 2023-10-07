@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: NameSpace
+metadata:
+  name: dev-mongodb
+
+---
+kubectl create namespace dev-mongodb  
+
+kubectl config set-context --current --namespace=dev-mongodb
+
+# Validate it
+kubectl config view --minify | grep namespace:
+
+
+
+---
+Switch namespace only using the kubectl commands:
+kubectl config set-context --current --namespace=<namespace>
+
+
+
+Create a new context with namespace defined:
+kubectl config set-context gce-dev --user=cluster-admin --namespace=dev
+kubectl config use-context gce-dev
+
+
+$ alias kubens='kubectl config set-context --current --namespace '
+$ alias kubectx='kubectl config use-context '
+
+// Usage
+$ kubens kube-system    //Switch to a different namespace
+$ kubectx docker        //Switch to separate context
+

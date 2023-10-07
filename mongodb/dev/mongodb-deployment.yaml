@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mongodb-deploy
-  namespace: dev
 spec:
   strategy:
     type: "RollingUpdate"
@@ -23,7 +22,6 @@ spec:
       name: mongodb-pod
       labels:
         app: mongodb
-      namespace: dev  
     spec:
       affinity:
         nodeAffinity:
