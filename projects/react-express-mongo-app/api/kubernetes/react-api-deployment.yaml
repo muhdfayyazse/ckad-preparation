@@ -26,4 +26,4 @@ spec:
       - name: BACKEND_PORT
         value: 5000
       - name: MONGODB_SCHEMA
-       value: react-api
+        value: react-api
