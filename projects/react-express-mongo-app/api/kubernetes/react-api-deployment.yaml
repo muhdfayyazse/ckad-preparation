@@ -20,10 +20,10 @@ spec:
         image: muhdfayyaz/react-api
         ports:
         - containerPort: 5000
-      env:
-      - name: MONGODB_SERVICE
-        value: mongodb-service.dev-mongodb-svc.cluster.local
-      - name: BACKEND_PORT
-        value: 5000
-      - name: MONGODB_SCHEMA
-        value: react-api
+        env:
+        - name: MONGODB_SERVICE
+          value: mongodb-service.dev-mongodb.svc.cluster.local
+        - name: BACKEND_PORT
+          value: 5000
+        - name: MONGODB_SCHEMA
+          value: react-api
