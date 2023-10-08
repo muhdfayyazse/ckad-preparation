@@ -5,8 +5,12 @@ metadata:
 
 ---
 kubectl create namespace dev-mongodb  
-
 kubectl config set-context --current --namespace=dev-mongodb
+
+
+kubectl create namespace dev-backend-app
+kubectl config set-context --current --namespace=dev-backend-app
+
 
 # Validate it
 kubectl config view --minify | grep namespace:
@@ -30,4 +34,10 @@ $ alias kubectx='kubectl config use-context '
 // Usage
 $ kubens kube-system    //Switch to a different namespace
 $ kubectx docker        //Switch to separate context
+
+
+
+
+
+
 

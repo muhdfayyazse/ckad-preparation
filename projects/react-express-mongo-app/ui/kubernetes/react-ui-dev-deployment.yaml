@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-ui-dev-deployment
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: react-ui
+
+  template:
+    metadata:
+      name: react-ui-pod
+      labels:
+        app: react-ui
+    spec:
+      containers:
+      - name: react-ui-container
+        image: muhdfayyaz/react-ui-dev:v1
+        ports:
+        - containerPort: 80
