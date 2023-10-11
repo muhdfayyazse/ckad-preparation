@@ -19,8 +19,8 @@ spec:
       restartPolicy: Always
       containers:
       - name: mongo-express
-        image: mongo-express:latest
-        imagePullPolicy: Always
+        image: mongo-express:1.0.0-20
+          #imagePullPolicy: Always
         ports:
         - containerPort: 8081
         env:
