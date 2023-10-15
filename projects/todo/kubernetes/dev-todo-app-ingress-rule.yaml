@@ -1,22 +1,27 @@
-# vi dev-namespace-inress-rule.yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: dev-mongodb-ingress-rule
+  name: dev-todo-app-ingress-rule
 #  annotations:
 #    nginx.ingress.kubernetes.io/ssl-redirect: "false"
 #    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
   rules:
-  - host: todo.cluster.local 
+  - host: todo.cluster.local
     http:
       paths:
-      - path: /todo/
+      - path: /
         pathType: Prefix
         backend:
           service:
             name: todo-frontend-app-service
             port:
               number: 3000
-
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+            name: todo-backend-app-service
+            port:
+              number: 5000
