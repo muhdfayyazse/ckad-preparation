@@ -1,0 +1,43 @@
+docker build -t muhdfayyaz/todo-backend:v1 . --no-cache
+
+
+MONGODB_URI
+BACKEND_API_PORT
+
+docker images
+docker rmi muhdfayyaz/todo-backend:v1
+
+
+docker run --name todo-backend-app -e MONGODB_URI=mongodb://mongodb:27017/TodoApp -e BACKEND_API_PORT=3000 muhdfayyaz/todo-backend:v1
+
+
+kubectl create namespace dev-todo-app 
+
+kubectl config set-context --current --namespace=dev-todo-app
+
+kubectl config view --minify | grep namespace:
+
+
+
+
+-----------------------------------------------------------------------------
+
+docker build -t muhdfayyaz/todo-frontend:v1 . --no-cache
+
+
+
+
+
+
+server {
+    listen 80;
+    location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+        try_files $uri $uri/ /index.html;
+    }
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+}
