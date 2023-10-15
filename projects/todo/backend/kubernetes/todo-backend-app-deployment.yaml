@@ -1,0 +1,26 @@
+apiVersion: apps:v1
+kind: Deployment
+metadata:
+  name: todo-backend-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todo-backend-app
+  
+  template:
+    metadata:
+      name: todo-backend-app-pod
+      labels:
+        app: todo-backend-app
+    spec:
+      containers:
+      - name: todo-backend-app-container
+        image: muhdfayyaz/todo-backend:v1
+        ports:
+        - containerPort: 5000
+        env:
+        - name: BACKEND_API_PORT
+          value: "5000"
+        - name: MONGODB_URI
+          value: mongodb://mongodb-service/TodoApp       

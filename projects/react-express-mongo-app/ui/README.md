@@ -68,11 +68,11 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
 
-docker build -t muhdfayyaz/react-ui --build-arg REACT_APP_BACKEND_SERVICE=http://localhost:5000 . --no-cache
 
 
-docker run --name react-api --env MONGODB_SERVICE=172.17.0.1 --env MONGODB_SCHEMA=user_data --env BACKEND_PORT=5000 -p 5000:5000 muhdfayyaz/react-api
+docker build -t muhdfayyaz/react-api:v1 . --no-cache
+docker run --name react-api --env MONGODB_SERVICE=172.17.0.1 --env MONGODB_SCHEMA=user_data --env BACKEND_PORT=5000 -p 5000:5000 muhdfayyaz/react-api:v1
 
 
-docker build -t muhdfayyaz/react-ui --build-arg REACT_APP_BACKEND_SERVICE=http://localhost:5000 . --no-cache
+docker build -t muhdfayyaz/react-ui --build-arg REACT_APP_BACKEND_SERVICE=/api . --no-cache
 docker run --name react-ui --env REACT_APP_BACKEND_SERVICE=http://localhost:5000 -p 80:80 muhdfayyaz/react-ui
