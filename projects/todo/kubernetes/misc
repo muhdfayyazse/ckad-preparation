@@ -50,3 +50,55 @@ server {
         root   /usr/share/nginx/html;
     }
 }
+
+
+
+
+
+
+use admin;
+db.createUser({
+    user: "admin",
+    pwd: "password123",
+    roles: [{ role: "userAdminAnyDatabase", db: "TodoApp" },{ role: "dbAdmin", db: "TodoApp" }, { role: "readWrite", db: "TodoApp" }]
+  });
+  
+db.createUser(
+  {
+    user: "root",
+    pwd: "pass123",
+    roles: [ { role: "userAdminAnyDatabase", db: "admin" }, "readWriteAnyDatabase" ]
+  }
+);  
+
+db.createUser(
+  {
+    user: "webuser",
+    pwd: "pass123",
+    roles: [ { role: "readWrite", db: "test" } ]
+  }
+);  
+
+
+db.grantRolesToUser('todo', [{role: "dbAdmin", db: "TodoApp" }]);
+
+db.grantRolesToUser('admin', [
+	{ role: 'root', db: 'admin' },
+	{ role: "dbAdmin", db: "admin" }
+])
+
+mongosh --port 27017 -u admin -p password123 --authenticationDatabase admin
+
+db.createCollection("Todo",
+  {
+    text : {
+        type: String,
+        trim: true,
+        required: true
+    }
+  }
+);  
+
+mongosh --port 27017 -u todo -p password123 --authenticationDatabase TodoApp
+
+mongosh mongodb://todo:password123@localhost:27017/TodoApp
