@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: todo-frontend-app-container
-        image: muhdfayyaz/todo-frontend:v1
+        image: muhdfayyaz/todo-frontend:v1.1
         ports:
         - containerPort: 3000

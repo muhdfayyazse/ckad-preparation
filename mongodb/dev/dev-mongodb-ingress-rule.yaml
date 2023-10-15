@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host:
+  - host: mongodb.cluster.local
     http:
       paths:
       - path: /
@@ -19,4 +19,3 @@ spec:
             name: mongo-express-service
             port:
               number: 8081
-
