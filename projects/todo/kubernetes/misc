@@ -1,3 +1,17 @@
+
+kubectl create namespace dev-todo-app 
+
+kubectl config set-context --current --namespace=dev-todo-app
+
+kubectl config view --minify | grep namespace:
+
+
+
+
+
+
+
+
 docker build -t muhdfayyaz/todo-backend:v1 . --no-cache
 
 
@@ -11,11 +25,6 @@ docker rmi muhdfayyaz/todo-backend:v1
 docker run --name todo-backend-app -e MONGODB_URI=mongodb://mongodb:27017/TodoApp -e BACKEND_API_PORT=3000 muhdfayyaz/todo-backend:v1
 
 
-kubectl create namespace dev-todo-app 
-
-kubectl config set-context --current --namespace=dev-todo-app
-
-kubectl config view --minify | grep namespace:
 
 
 
