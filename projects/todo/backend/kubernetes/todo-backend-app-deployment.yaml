@@ -23,4 +23,4 @@ spec:
         - name: BACKEND_API_PORT
           value: "5000"
         - name: MONGODB_URI
-          value: mongodb://mongodb-service/TodoApp       
+          value: mongodb://mongodb-service.dev-mongodb.svc.cluster.local/TodoApp       

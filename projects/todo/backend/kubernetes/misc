@@ -1,0 +1,11 @@
+docker build -t muhdfayyaz/todo-backend:v1 . --no-cache
+
+
+MONGODB_URI
+BACKEND_API_PORT
+
+docker images
+docker rmi muhdfayyaz/todo-backend:v1
+
+
+docker run --name todo-backend-app -e MONGODB_URI=mongodb://mongodb:27017/TodoApp -e BACKEND_API_PORT=3000 muhdfayyaz/todo-backend:v1
