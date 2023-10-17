@@ -41,3 +41,18 @@ $ kubectx docker        //Switch to separate context
 
 
 
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-express-nodeport-service
+spec:
+  type: ClusterIP
+  ports:
+  - name: http
+    protocol: TCP
+    port: 8081
+    targetPort: 8081
+  selector:
+    app: mongo-express
