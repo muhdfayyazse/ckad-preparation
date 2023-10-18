@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: file-gen-demo-pod
+spec:
+  containers:
+    - name: file-gen-demo-pod-container
+      image: alpine
+      command: ["sleep", "infinity"]
+      volumeMounts:
+      - name: file-from-config
+        mountPath: /data/html
+        readOnly: true   
+
+  volumes:
+    - name: file-from-config
+      configMap:
+        name: file-gen-configmap
+        items:
+        - key: index.html
+          path: index.html
